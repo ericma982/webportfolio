@@ -1,27 +1,16 @@
-import { magic } from '../../lib/magic'
-import { createSession } from '../../lib/auth-cookies'
-import { createHandlers } from '../../lib/rest-utils'
-import { UserModel } from '../../lib/models/user-model'
+import { Magic } from '@magic-sdk/admin'
+import Iron from '@hapi/iron'
+import CookieService from '../../util/cookie'
 
-const handlers = {
-    POST: async (req, res) => {
-        const didToken = magic.utils.parseAuthorizationHeader(req.headers.authorization)
 
-        magic.token.validate(didToken);
-        const { email, issuer } = await magic.users.getMetadataByToken(didToken)
+export default async (req, res) => {
+    if (req.method !== 'POST') return res.status(405).end()
 
-        const userModel = new UserModel()
-        // We auto-detect signups if `getUserByEmail` resolves to `undefined`
-        const user = await userModel.getUserByEmail(email) ?? await userModel.createUser(email);
-        const token = await userModel.obtainFaunaDBToken(user);
+    const did = req.header.authorization.split('Bearer').pop.trim()
+    const user = await new Magic(process.env.MAGIC_SECRET_KEY).users.getMetadataByToken(did)
 
-        await createSession(res, { token, email, issuer })
+    const token = await Iron.seal(user, process.env.ENCRYPTION_SECRET, Iron.defaults)
+    CookieService.setTokenCookie(res, token)
 
-        res.status(200).send({ done: true })
-    },
-}
-
-export default function login(req, res) {
-    const handler = createHandlers(handlers);
-    return handler(req, res);
+    res.end()
 }

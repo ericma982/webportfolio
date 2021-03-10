@@ -1,28 +1,44 @@
 import Head from "next/head";
 import axios from 'axios'
 import utilStyles from '../styles/utils.module.css'
+import { useRouter } from 'next/router'
 
 export default function id({ post }) {
 
     return (
         <div className="container justify-center w-full lg:w-auto mx-auto">
-            <h1 className={utilStyles.headingLg}>{post[0].title}</h1>
-            <div>{post[0].body}</div>
+            <h1 className={utilStyles.headingIndex}>{post.title}</h1>
+            <div className="justify-center w-full mx-16">{post.body}</div>
         </div>
 
     )
 }
 
-id.getInitialProps = async (context) => {
-    const res = await axios.get('http://localhost:3000/api/posts', {
-        params: {
-            ID: context.pathname
-        }
-    });
+export async function getStaticProps(context) {
+    const res = await axios.get(`http://localhost:3000/api/posts/${context.params.id}`);
 
     const post = res.data.data;
 
-    console.log(post);
-    return { post };
+    //console.log(post);
+    return { props: { post } };
 
+}
+
+// This function gets called at build time
+export async function getStaticPaths() {
+    // Call an external API endpoint to get posts
+
+    const res = await axios.get(`http://localhost:3000/api/posts`)
+    const posts = res.data.data;
+
+    //console.log(posts);
+
+    // Get the paths we want to pre-render based on posts
+    const paths = posts.map((post) => ({
+        params: { id: post._id },
+    }))
+
+    // We'll pre-render only these paths at build time.
+    // { fallback: false } means other routes should 404.
+    return { paths, fallback: false }
 }

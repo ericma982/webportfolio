@@ -26,6 +26,13 @@
   line-height: 1.5;
 }
 
+.headingIndex {
+  font-size: 5rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
 .borderCircle {
   border-radius: 9999px;
 }

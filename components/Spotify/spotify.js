@@ -15,8 +15,8 @@ const albums = null;
 export default function Spotify() {
 
     var spotifyApi = new SpotifyWebApi({
-        clientId: 'c1d15e646bde48ecaac944615f66682c',
-        clientSecret: 'e237c672dff6400aaa627e61986f7ea4',
+        clientId: 'null',
+        clientSecret: 'null',
     });
 
     spotifyApi.clientCredentialsGrant().then(

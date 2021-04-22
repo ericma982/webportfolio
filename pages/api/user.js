@@ -1,21 +1,18 @@
-export default async function user(req, res) {
+import Iron from '@hapi/iron'
+import CookieService from '../../util/cookie'
+
+export default async (req, res) => {
+    let user;
     try {
-        if (!req.cookies.token) return res.json({ user: null });
-        let token = req.cookies.token;
-        let user = jwt.verify(token, process.env.JWT_SECRET);
-        let { issuer, publicAddress, email } = user;
-        let newToken = jwt.sign(
-            {
-                issuer,
-                publicAddress,
-                email,
-                exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 7, // one week
-            },
-            process.env.JWT_SECRET
-        );
-        setTokenCookie(res, newToken);
-        res.status(200).json({ user });
+        user = await Iron.unseal(CookieService.getAuthToken(req.cookies), process.env.TOKEN_SECRET, Iron.defaults)
     } catch (error) {
-        res.status(200).json({ user: null });
+        //res.status(401).end()
     }
+
+    // now we have access to the data inside of user
+    // and we could make database calls or just send back what we have
+    // in the token.
+    //console.log(user)
+
+    res.json(user)
 }

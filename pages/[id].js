@@ -2,6 +2,8 @@ import Head from "next/head";
 import axios from 'axios'
 import utilStyles from '../styles/utils.module.css'
 import { useRouter } from 'next/router'
+import dbConnect from '../util/dbConnect'
+import Post from '../models/Post'
 
 export default function id({ post }) {
 
@@ -15,9 +17,10 @@ export default function id({ post }) {
 }
 
 export async function getStaticProps(context) {
-    const res = await axios.get(`http://localhost:3000/api/posts/${context.params.id}`);
+    dbConnect();
+    const res = await Post.findById(context.params.id);//axios.get(`http://localhost:3000/api/posts/${context.params.id}`);
 
-    const post = res.data.data;
+    const post = JSON.parse(JSON.stringify(res));//.data.data;
 
     //console.log(post);
     return { props: { post } };
@@ -27,9 +30,9 @@ export async function getStaticProps(context) {
 // This function gets called at build time
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
-
-    const res = await axios.get(`http://localhost:3000/api/posts`)
-    const posts = res.data.data;
+    dbConnect();
+    const res = await Post.find();//axios.get(`http://localhost:3000/api/posts`)
+    const posts = JSON.parse(JSON.stringify(res));//.data.data;
 
     //console.log(posts);
 

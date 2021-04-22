@@ -12,9 +12,6 @@ export const siteTitle = 'Next.js Sample Website'
 export default function Layout({ children, home }) {
     return (
         <>
-            <Head>
-                <title>webportfolio</title>
-            </Head>
             <NavBar />
             {children}
         </>

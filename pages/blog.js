@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import axios from 'axios'
 import utilStyles from '../styles/utils.module.css'
+import dbConnect from '../util/dbConnect'
+import Post from '../models/Post'
 export default function Blog({ postCards }) {
 
 
@@ -10,7 +12,7 @@ export default function Blog({ postCards }) {
             <div className="grid grid-cols-3 grid-rows-auto flex-wrap justify-center w-full md:mx-16 lg:mx-16 lg:gap-y-12 lg:gap-x-48">
                 {postCards.map(post => {
                     return (
-                        <div key={post._id} className="overflow-hidden shadow-md relative md:h-32 md:w-32 lg:h-32 lg:w-64" > {//card content}
+                        <div key={post._id} className="overflow-hidden shadow-md relative md:h-32 md:w-32 lg:h-32 lg:w-64 hover:bg-red-200" > {//card content}
                         }
                             <Link href={`${post._id}`}>
                                 <div className=""> {//heading}
@@ -32,9 +34,11 @@ export default function Blog({ postCards }) {
 }
 
 export async function getStaticProps(context) {
-    const res = await axios.get('http://localhost:3000/api/posts');
+    await dbConnect();
 
-    const postCards = res.data.data;
+    const res = await Post.find({ private: false });//axios.get('http://localhost:3000/api/posts');
+
+    const postCards = JSON.parse(JSON.stringify(res));//.data.data;
 
     //console.log(postCards);
     return { props: { postCards } };

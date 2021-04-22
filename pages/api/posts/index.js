@@ -12,7 +12,7 @@ export default async (req, res) => {
     switch (method) {
         case 'GET':
             try {
-                const posts = await Post.find();
+                const posts = await Post.find({ private: false });
                 res.status(200).json({ success: true, data: posts });
             } catch (error) {
                 res.status(400).json({ success: false });
@@ -23,7 +23,9 @@ export default async (req, res) => {
                 const post = await Post.create(req.body);
                 res.status(201).json({ success: true, data: post });
             } catch (error) {
-                res.status(400).json({ success: false });
+                console.log(error)
+                //res.status(400).json({ success: false });
+
             }
             break;
         default:

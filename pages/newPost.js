@@ -15,7 +15,7 @@ export default function NewPost() {
         event.preventDefault()
 
         try {
-            const res = await axios.post('http://localhost:3000/api/posts/', {
+            const res = await axios.post('/api/posts/', {
                 title: event.target.title.value,
                 body: event.target.body.value,
                 private: event.target.private.value

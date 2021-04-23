@@ -17,7 +17,7 @@ export default function Dashboard({ postCards }) {
     const deleteListing = async event => {
         event.preventDefault();
         try {
-            const res = await axios.delete(`http://localhost:3000/api/posts/${event.target.id.value}`)
+            const res = await axios.delete(`/api/posts/${event.target.id.value}`)
         }
         catch (err) {
             console.log(err)

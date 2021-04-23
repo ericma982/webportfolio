@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import Layout from '../components/Layout/layout'
 import axios from 'axios'
 
-axios.defaults.baseURL = "http://ericma.vercel.app";
+axios.defaults.baseURL = "http://localhost:3000";
 
 
 function MyApp({ Component, pageProps }) {

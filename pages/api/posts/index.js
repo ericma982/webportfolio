@@ -36,6 +36,6 @@ export default async (req, res) => {
 
 export async function getServerSideProps() {
     //await connectToDatabase();
-    await dbConnect()
+    await dbConnect();
 
 }

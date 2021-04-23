@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import axios from 'axios'
 import utilStyles from '../styles/utils.module.css'
 import dbConnect from '../util/dbConnect'
 import Post from '../models/Post'

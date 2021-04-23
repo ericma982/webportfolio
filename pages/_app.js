@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import Layout from '../components/Layout/Layout'
+import Layout from '../components/Layout/Layout.js'
 import axios from 'axios'
 
 axios.defaults.baseURL = "http://ericma.vercel.app"

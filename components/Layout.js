@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import NavBar from '../navbar/NavBar.js'
+import NavBar from './NavBar.js'
 import styles from './layout.module.css'
 import utilStyles from '../../styles/utils.module.css'
 

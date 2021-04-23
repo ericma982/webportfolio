@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import utilStyles from '../styles/utils.module.css'
 import styles from '../styles/Home.module.css'
-import Spotify from '../components/spotify/Spotify.js'
+import Spotify from '../components/Spotify.js'
 
 
 export default function Home({ }) {

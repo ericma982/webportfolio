@@ -1,4 +1,4 @@
-import BlogCard from '../blogcard/blogcard'
+import BlogCard from './BlogCard'
 
 
 export default function BlogTable({ children }) {

@@ -1,6 +1,5 @@
 import dbConnect from '../../../util/dbConnect'
 import Post from '../../../models/Post'
-import { connectToDatabase } from '../../../util/mongodb'
 
 
 dbConnect();

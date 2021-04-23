@@ -6,7 +6,7 @@ export default async (req, res) => {
     try {
         user = await Iron.unseal(CookieService.getAuthToken(req.cookies), process.env.TOKEN_SECRET, Iron.defaults)
     } catch (error) {
-        //res.status(401).end()
+        console.log(error)
     }
 
     // now we have access to the data inside of user

@@ -1,33 +1,31 @@
 import axios from 'axios';
-import useAuth from '../hooks/useAuth'
-import { useRouter } from 'next/router'
+import useAuth from '../hooks/useAuth';
+import { useRouter } from 'next/router';
+import Error from 'next/error'
 
-export default function NewPost() {
-    const router = useRouter();
-    const { user, loading } = useAuth();
+export default function Newpost() {
+    const { data, loading, error } = useAuth();
 
-
-    if (!user || !user.email === 'ericma982@gmail.com') {
+    if (!data?.email == 'ericma982@gmail.com') {
         return <Error statusCode={404} />
     }
+
+    const router = useRouter();
+
 
     const singlePost = async event => {
         event.preventDefault()
 
-        try {
-            const res = await axios.post('/api/posts/', {
-                title: event.target.title.value,
-                body: event.target.body.value,
-                private: event.target.private.value
-            })
-        }
-        catch (err) {
-            console.log(err)
-        }
+
+        const res = await axios.post('/api/posts/', {
+            title: event.target.title.value,
+            body: event.target.body.value,
+            private: event.target.private.value
+        })
+        const data = res.data.data;
         router.push('dashboard')
-
-
     }
+
 
     return (
         <div className="container flex flex-col mx-auto my-10">

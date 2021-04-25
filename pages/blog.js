@@ -32,7 +32,7 @@ export default function Blog({ postCards }) {
     )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     await dbConnect();
 
     const res = await Post.find({ private: false });//axios.get('http://localhost:3000/api/posts');

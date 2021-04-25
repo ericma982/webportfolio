@@ -59,7 +59,7 @@ export default function Dashboard({ postCards }) {
     )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     await dbConnect();
 
     const res = await Post.find();//axios.get('http://localhost:3000/api/posts');

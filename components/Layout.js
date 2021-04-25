@@ -11,6 +11,10 @@ export const siteTitle = 'Next.js Sample Website'
 export default function Layout({ children, home }) {
     return (
         <>
+            <Head>
+                <title>Eric Ma</title>
+                <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+            </Head>
             <NavBar />
             {children}
         </>

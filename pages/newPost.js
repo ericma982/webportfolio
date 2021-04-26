@@ -41,8 +41,8 @@ export default function Newpost() {
                 <br />
                 <label htmlFor="private"><h2 className="text-4xl">Is this a private post?</h2></label>
                 <select id="private" className="border-2 border-black border-opacity-10 p-2" >
-                    <option value="true">True</option>
                     <option value="false">False</option>
+                    <option value="true">True</option>
                 </select>
                 <br />
                 <br />

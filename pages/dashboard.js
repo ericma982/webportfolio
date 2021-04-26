@@ -19,7 +19,7 @@ export default function Dashboard({ postCards }) {
         const res = await axios.delete(`/api/posts/${event.target.id.value}`)
 
         console.log(res)
-        window.location.reload(false);
+        //window.location.reload(false);
     }
 
 

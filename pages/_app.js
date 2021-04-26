@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import Layout from '../components/Layout.js'
 import axios from 'axios'
 
-axios.defaults.baseURL = "http://ericswma.com"
+axios.defaults.baseURL = "https://www.ericswma.com"
 
 function MyApp({ Component, pageProps }) {
   return (

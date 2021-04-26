@@ -16,12 +16,9 @@ export default function Dashboard({ postCards }) {
 
     const deleteListing = async event => {
         event.preventDefault();
-        try {
-            const res = await axios.delete(`/api/posts/${event.target.id.value}`)
-        }
-        catch (err) {
-            console.log(err)
-        }
+        const res = await axios.delete(`/api/posts/${event.target.id.value}`)
+
+        console.log(res)
         window.location.reload(false);
     }
 

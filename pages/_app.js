@@ -1,9 +1,8 @@
 import '../styles/globals.css'
-import Layout from '../components/Layout/layout'
+import Layout from '../components/Layout.js'
 import axios from 'axios'
 
-axios.defaults.baseURL = "http://localhost:3000";
-
+axios.defaults.baseURL = "http://ericswma.com"
 
 function MyApp({ Component, pageProps }) {
   return (

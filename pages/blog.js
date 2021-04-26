@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import axios from 'axios'
 import utilStyles from '../styles/utils.module.css'
 import dbConnect from '../util/dbConnect'
 import Post from '../models/Post'
@@ -33,7 +32,7 @@ export default function Blog({ postCards }) {
     )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     await dbConnect();
 
     const res = await Post.find({ private: false });//axios.get('http://localhost:3000/api/posts');

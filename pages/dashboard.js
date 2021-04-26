@@ -8,20 +8,17 @@ import Post from '../models/Post'
 import utilStyles from '../styles/utils.module.css'
 
 export default function Dashboard({ postCards }) {
-    const { user, loading, error } = useAuth();
+    const { data, loading, error } = useAuth();
 
-    if (!user) {
+    if (!data?.email == 'ericma982@gmail.com') {
         return <Error statusCode={404} />
     }
 
     const deleteListing = async event => {
         event.preventDefault();
-        try {
-            const res = await axios.delete(`/api/posts/${event.target.id.value}`)
-        }
-        catch (err) {
-            console.log(err)
-        }
+        const res = await axios.delete(`/api/posts/${event.target.id.value}`)
+
+        console.log(res)
         window.location.reload(false);
     }
 
@@ -30,7 +27,7 @@ export default function Dashboard({ postCards }) {
         <div className="container justify-center w-full lg:w-auto mx-auto my-16">
             <h1 className={utilStyles.headingIndex}>Dashboard</h1>
             <br />
-            <Link href="/newPost"><button className="p-2 bg-green-500 active:bg-green-700">New Blog Post</button></Link>
+            <Link href="/newPost"><button className="p-2 bg-green-500 hover:bg-green-700">New Blog Post</button></Link>
             <div className="grid grid-cols-3 grid-rows-auto flex-wrap justify-center w-full md:mx-16 lg:mx-16 lg:gap-y-12 lg:gap-x-48">
                 {postCards.map(post => {
                     return (
@@ -59,7 +56,7 @@ export default function Dashboard({ postCards }) {
     )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     await dbConnect();
 
     const res = await Post.find();//axios.get('http://localhost:3000/api/posts');

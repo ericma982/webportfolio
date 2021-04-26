@@ -1,6 +1,5 @@
 import dbConnect from '../../../util/dbConnect'
 import Post from '../../../models/Post'
-import { connectToDatabase } from '../../../util/mongodb'
 
 
 dbConnect();
@@ -36,6 +35,6 @@ export default async (req, res) => {
 
 export async function getServerSideProps() {
     //await connectToDatabase();
-    await dbConnect()
+    await dbConnect();
 
 }

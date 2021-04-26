@@ -1,5 +1,4 @@
 import Head from "next/head";
-import axios from 'axios'
 import utilStyles from '../styles/utils.module.css'
 import { useRouter } from 'next/router'
 import dbConnect from '../util/dbConnect'

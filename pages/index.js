@@ -17,7 +17,6 @@ export default function Home({ }) {
           <h4 className={utilStyles.headingMd}>I'm learning how to develop this website into something of my own voice, digitally. Enjoy your stay.</h4>
 
         </div>
-a
       </div>
     </>
 

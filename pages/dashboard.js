@@ -46,10 +46,10 @@ export default function Dashboard({ postCards }) {
                                 <div className=""> {//heading}
                                 }
                                     <div className={utilStyles.headingMd}>
-                                        <h4>{post.title}</h4>
+                                        <h4 className="font-bold">{post.title}</h4>
                                     </div>
                                     <div className={utilStyles.lightText}>
-                                        <p className="">{post.body}</p>
+                                        <p className="overflow-y-hidden">{post.body}</p>
                                     </div>
                                 </div>
                             </Link>

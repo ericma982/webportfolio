@@ -11,16 +11,16 @@ export default function Blog({ postCards }) {
             <div className="grid grid-cols-3 grid-rows-auto flex-wrap justify-center w-full md:mx-16 lg:mx-16 lg:gap-y-12 lg:gap-x-48">
                 {postCards.map(post => {
                     return (
-                        <div key={post._id} className="overflow-hidden shadow-md relative md:h-32 md:w-32 lg:h-32 lg:w-64 hover:bg-red-200" > {//card content}
+                        <div key={post._id} className="overflow-hidden shadow-md relative md:h-32 md:w-32 lg:h-32 lg:w-64 hover:bg-blue-200" > {//card content}
                         }
                             <Link href={`${post._id}`}>
                                 <div className=""> {//heading}
                                 }
                                     <div className={utilStyles.headingMd}>
-                                        <h4>{post.title}</h4>
+                                        <h4 className="font-bold">{post.title}</h4>
                                     </div>
                                     <div className={utilStyles.lightText}>
-                                        <p className="">{post.body}</p>
+                                        <p className="overflow-y-hidden">{post.body}</p>
                                     </div>
                                 </div>
                             </Link>

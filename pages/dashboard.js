@@ -10,16 +10,25 @@ import utilStyles from '../styles/utils.module.css'
 export default function Dashboard({ postCards }) {
     const { data, loading, error } = useAuth();
 
-    if (!data?.email == 'ericma982@gmail.com') {
+    if (data?.email != 'ericma982@gmail.com') {
         return <Error statusCode={404} />
     }
 
+
+
     const deleteListing = async event => {
         event.preventDefault();
-        const res = await axios.delete(`/api/posts/${event.target.id.value}`)
+        const res = await fetch(`/api/posts/${event.target.id.value}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json, text/plain, */',
+                'Content-Type': 'application/json'
+            }
+        });
+        //const res = await axios.delete(`/api/posts/${event.target.id.value}`)
 
         console.log(res)
-        //window.location.reload(false);
+        window.location.reload(false);
     }
 
 

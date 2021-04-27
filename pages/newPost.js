@@ -6,7 +6,7 @@ import Error from 'next/error'
 export default function Newpost() {
     const { data, loading, error } = useAuth();
 
-    if (!data?.email == 'ericma982@gmail.com') {
+    if (data?.email !== 'ericma982@gmail.com') {
         return <Error statusCode={404} />
     }
 
@@ -16,13 +16,28 @@ export default function Newpost() {
     const singlePost = async event => {
         event.preventDefault()
 
-
-        const res = await axios.post('/api/posts/', {
+        const postData = JSON.stringify({
             title: event.target.title.value,
             body: event.target.body.value,
             private: event.target.private.value
         })
-        const data = res.data.data;
+
+        const res = await fetch('/api/posts', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */',
+                'Content-Type': 'application/json'
+            },
+            body: postData
+        });
+        /*
+                const res = await axios.post('/api/posts/', {
+                    title: event.target.title.value,
+                    body: event.target.body.value,
+                    private: event.target.private.value
+                })
+                const data = res.data.data;
+        */
         router.push('dashboard')
     }
 

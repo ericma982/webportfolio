@@ -15,7 +15,7 @@ export default function id({ post }) {
     )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     dbConnect();
     const res = await Post.findById(context.params.id);//axios.get(`http://localhost:3000/api/posts/${context.params.id}`);
 
@@ -25,7 +25,7 @@ export async function getStaticProps(context) {
     return { props: { post } };
 
 }
-
+/*
 // This function gets called at build time
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
@@ -44,3 +44,4 @@ export async function getStaticPaths() {
     // { fallback: false } means other routes should 404.
     return { paths, fallback: false }
 }
+*/

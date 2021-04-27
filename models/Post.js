@@ -15,7 +15,7 @@ const postSchema = new mongoose.Schema({
         trim: true
     },
     private: {
-        type: String,
+        type: Boolean,
         required: [true]
     }
 

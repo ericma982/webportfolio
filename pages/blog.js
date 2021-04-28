@@ -19,6 +19,9 @@ export default function Blog({ postCards }) {
                                     <div className={utilStyles.headingMd}>
                                         <h4 className="font-bold">{post.title}</h4>
                                     </div>
+                                    <div className={utilStyles.headingMd}>
+                                        <h4 className="">{post.createdAt}</h4>
+                                    </div>
                                     <div className={utilStyles.lightText}>
                                         <p className="overflow-y-hidden">{post.body}</p>
                                     </div>

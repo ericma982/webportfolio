@@ -14,8 +14,10 @@ export default function Layout({ children, home }) {
             <Head>
                 <title>Eric Ma</title>
             </Head>
-            <NavBar />
-            {children}
+            <div className="bg-home-page h-screen bg-center bg-cover">
+                <NavBar />
+                {children}
+            </div>
         </>
     )
 }

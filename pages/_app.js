@@ -6,7 +6,7 @@ axios.defaults.baseURL = "https://ericma.vercel.app"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout className="h-screen" ><Component {...pageProps} /></Layout>
+    <Layout className="h-screen "><Component {...pageProps} /></Layout>
   )
 }
 

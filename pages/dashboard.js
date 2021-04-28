@@ -19,11 +19,7 @@ export default function Dashboard({ postCards }) {
     const deletePost = async event => {
         event.preventDefault();
         const res = await fetch(`/api/posts/${event.target.id.value}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json, text/plain, */',
-                'Content-Type': 'application/json'
-            }
+            method: 'DELETE'
         });
         //const res = await axios.delete(`/api/posts/${event.target.id.value}`)
 

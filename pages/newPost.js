@@ -16,11 +16,15 @@ export default function Newpost() {
     const singlePost = async event => {
         event.preventDefault()
 
+
+
         const postData = JSON.stringify({
             title: event.target.title.value,
             body: event.target.body.value,
             private: event.target.private.value
         })
+
+
 
         const res = await fetch('/api/posts/', {
             method: 'POST',
@@ -52,7 +56,7 @@ export default function Newpost() {
                 <br />
                 <label htmlFor="body"><h2 className="text-4xl">Body</h2></label>
                 <br />
-                <textarea rows="4" cols="175" type="text" id="body" className="border-2 border-black border-opacity-10 " required></textarea>
+                <textarea rows="4" cols="175" type="text" id="body" className="border-2 border-black border-opacity-10 whitespace-pre-wrap" required></textarea>
                 <br />
                 <label htmlFor="private"><h2 className="text-4xl">Is this a private post?</h2></label>
                 <select id="private" className="border-2 border-black border-opacity-10 p-2" >

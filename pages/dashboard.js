@@ -54,7 +54,7 @@ export default function Dashboard({ postCards }) {
                                 </div>
                             </Link>
                             <form onSubmit={deleteListing}>
-                                <input type="hidden" name="id" value={post._id}></input>
+                                <input type="hidden" id="id" value={post._id}></input>
                                 <button className="bg-blue-500 p-2 rounded text-green-200" type="submit">Delete</button>
                             </form>
                         </div>

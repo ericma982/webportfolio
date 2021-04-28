@@ -9,7 +9,7 @@ export default function id({ post }) {
     return (
         <div className="container justify-center w-full lg:w-auto mx-auto">
             <h1 className={utilStyles.headingIndex}>{post.title}</h1>
-            <div className="justify-center w-full mx-16">{post.body}</div>
+            <div className="container justify-center w-full mx-auto whitespace-pre-wrap">{post.body}</div>
         </div>
 
     )

@@ -11,8 +11,7 @@ const postSchema = new mongoose.Schema({
     },
     body: {
         type: String,
-        required: [true, 'Please add body'],
-        trim: true
+        required: [true, 'Please add body']
     },
     private: {
         type: Boolean,

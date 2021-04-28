@@ -23,7 +23,7 @@ export default function Blog({ postCards }) {
                                         <h4 className="">{post.createdAt}</h4>
                                     </div>
                                     <div className={utilStyles.lightText}>
-                                        <p className="overflow-y-hidden">{post.body}</p>
+                                        <p className="truncate">{post.body}</p>
                                     </div>
                                 </div>
                             </Link>

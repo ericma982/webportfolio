@@ -56,7 +56,7 @@ export default function Newpost() {
                 <br />
                 <label htmlFor="body"><h2 className="text-4xl">Body</h2></label>
                 <br />
-                <textarea rows="4" cols="175" type="text" id="body" className="border-2 border-black border-opacity-10 whitespace-pre" required></textarea>
+                <textarea rows="4" cols="175" type="text" id="body" className="border-2 border-black border-opacity-10" required></textarea>
                 <br />
                 <label htmlFor="private"><h2 className="text-4xl">Is this a private post?</h2></label>
                 <select id="private" className="border-2 border-black border-opacity-10 p-2" >

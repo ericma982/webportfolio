@@ -16,7 +16,7 @@ export default function Dashboard({ postCards }) {
 
 
 
-    const deleteListing = async event => {
+    const deletePost = async event => {
         event.preventDefault();
         const res = await fetch(`/api/posts/${event.target.id.value}`, {
             method: 'DELETE',
@@ -28,7 +28,7 @@ export default function Dashboard({ postCards }) {
         //const res = await axios.delete(`/api/posts/${event.target.id.value}`)
 
         console.log(res)
-        //window.location.reload(false);
+        window.location.reload(false);
     }
 
 
@@ -53,7 +53,7 @@ export default function Dashboard({ postCards }) {
                                     </div>
                                 </div>
                             </Link>
-                            <form onSubmit={deleteListing}>
+                            <form onSubmit={deletePost}>
                                 <input type="hidden" id="id" value={post._id}></input>
                                 <button className="bg-blue-500 p-2 rounded text-green-200" type="submit">Delete</button>
                             </form>

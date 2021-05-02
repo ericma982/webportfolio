@@ -1,8 +1,8 @@
 import Head from "next/head";
-import utilStyles from '../styles/utils.module.css'
+import utilStyles from '../../styles/utils.module.css'
 import { useRouter } from 'next/router'
-import dbConnect from '../util/dbConnect'
-import Post from '../models/Post'
+import dbConnect from '../../util/dbConnect'
+import Post from '../../models/Post'
 
 export default function id({ post }) {
 

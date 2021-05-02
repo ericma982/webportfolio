@@ -28,11 +28,11 @@ export default function Login() {
   }
 
   return (
-    <div className="container justify-center w-full mx-auto flex">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
+    <div className="container justify-center w-full mx-auto flex my-16">
+      <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
+        <label htmlFor="email" className="text-white text-4xl font-bold">Login with Email</label>
         <input name="email" type="email" />
-        <button>Log in</button>
+        <button className="bg-white rounded p-2">Login</button>
       </form>
     </div>
 

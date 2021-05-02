@@ -46,7 +46,7 @@ export default function Dashboard({ postCards }) {
                          hover:bg-white hover:shadow-lg hover:border-transparent relative 
                          md:h-32 md:w-32 lg:h-32 lg:w-80 " > {//card content}
                             }
-                            <Link href={`${post._id}`}>
+                            <Link href={`/blog/${post._id}`}>
                                 <div className=""> {//heading}
                                 }
                                     <div className="text-lg text-white group-hover:text-black">
@@ -60,10 +60,13 @@ export default function Dashboard({ postCards }) {
                                     </div>
                                 </div>
                             </Link>
-                            <form onSubmit={deletePost}>
-                                <input type="hidden" id="id" value={post._id}></input>
-                                <button className="bg-blue-500 p-2 rounded text-green-200" type="submit">Delete</button>
-                            </form>
+                            <div className="flex">
+                                <Link href={`/editPost/${post._id}`}><button className="bg-blue-500 p-2 rounded text-green-200" type="submit">Edit</button></Link>
+                                <form onSubmit={deletePost}>
+                                    <input type="hidden" id="id" value={post._id}></input>
+                                    <button className="bg-blue-500 p-2 rounded text-green-200" type="submit">Delete</button>
+                                </form>
+                            </div>
                         </button>
 
                     )

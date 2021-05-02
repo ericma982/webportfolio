@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import utilStyles from '../styles/utils.module.css'
-import dbConnect from '../util/dbConnect'
-import Post from '../models/Post'
+import utilStyles from '../../styles/utils.module.css'
+import dbConnect from '../../util/dbConnect'
+import Post from '../../models/Post'
 export default function Blog({ postCards }) {
 
 
@@ -16,7 +16,7 @@ export default function Blog({ postCards }) {
                          hover:bg-white hover:shadow-lg hover:border-transparent relative 
                          md:h-32 md:w-32 lg:h-32 lg:w-80 " > {//card content}
                             }
-                            <Link href={`${post._id}`}>
+                            <Link href={`/blog/${post._id}`}>
                                 <div className=""> {//heading}
                                 }
                                     <div className="text-lg text-white group-hover:text-black">

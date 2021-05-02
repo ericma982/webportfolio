@@ -8,7 +8,7 @@ import TopTracks from '../components/TopTracks.js'
 
 export default function Home({ }) {
   return (
-    <div className="" >
+    <div className="flex" >
       <div className="container justify-center w-full lg:w-auto mx-auto my-16">
         <h1 className={utilStyles.headingIndex}>
           <a className="text-white">Salvē!</a>
@@ -19,6 +19,10 @@ export default function Home({ }) {
           <NowPlaying className="" />
 
         </div>
+      </div>
+
+      <div className="container justify-center w-full lg:w-auto mx-auto my-40">
+        <TopTracks />
       </div>
     </div>
 

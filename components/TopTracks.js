@@ -12,25 +12,22 @@ export default function Spotify() {
 
     const { data } = useSWR('api/top-tracks', fetcher);
 
-    console.log(data)
+    if (!data) {
+        return null;
+    }
     return (
         <div className="text-white">
-            {data.tracks.map((track) => {
+            <h1>Often Listening To:</h1>
+            {data.tracks.map((track, index) => {
                 return (
                     <a href={track.songUrl} target="_blank"
                         rel="noopener noreferrer">
-                        <div className="text-white">
-                            {track.title}
-                        </div>
-                        <div className="text-white">
-                            {track.artist}
+                        <div className="">
+                            {index + 1}. {track.title} - {track.artist}
                         </div>
                     </a>
                 )
-
-            }
-            )}
-
+            })}
 
         </div>
     )

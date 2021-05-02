@@ -17,7 +17,7 @@ export default function Spotify() {
     }
     return (
         <div className="text-white">
-            <h1>Often Listening To:</h1>
+            <h1 className="font-medium">Often Listening To:</h1>
             {data.tracks.map((track, index) => {
                 return (
                     <a href={track.songUrl} target="_blank"

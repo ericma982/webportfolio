@@ -91,3 +91,21 @@ export async function getServerSideProps(context) {
     return { props: { post } };
 
 }
+
+export async function getStaticPaths() {
+    // Call an external API endpoint to get posts
+    dbConnect();
+    const res = await Post.find().sort({ createdAt: -1 });//axios.get(`http://localhost:3000/api/posts`)
+    const posts = JSON.parse(JSON.stringify(res));//.data.data;
+
+    //console.log(posts);
+
+    // Get the paths we want to pre-render based on posts
+    const paths = posts.map((post) => ({
+        params: { id: post._id },
+    }))
+
+    // We'll pre-render only these paths at build time.
+    // { fallback: false } means other routes should 404.
+    return { paths, fallback: false }
+}

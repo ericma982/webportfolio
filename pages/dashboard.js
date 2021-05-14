@@ -6,12 +6,17 @@ import dbConnect from '../util/dbConnect'
 import Post from '../models/Post'
 
 import utilStyles from '../styles/utils.module.css'
+import { useRouter } from 'next/router'
 
 export default function Dashboard({ postCards }) {
     const { data, loading, error } = useAuth();
+    const router = useRouter();
 
     if (data?.email != 'ericma982@gmail.com') {
         return <Error statusCode={404} />
+    }
+    else if (!data) {
+        router.push('/login')
     }
 
 

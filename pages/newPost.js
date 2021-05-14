@@ -48,17 +48,17 @@ export default function Newpost() {
 
     return (
         <div className="container flex flex-col mx-auto my-10">
-            <h1 className="text-6xl font-bold">New Post</h1>
+            <h1 className="text-6xl font-bold text-white">New Post</h1>
             <form className="mx-auto my-10" onSubmit={singlePost} >
-                <label htmlFor="title"><h2 className="text-4xl">Title</h2></label>
+                <label htmlFor="title"><h2 className="text-4xl text-white">Title</h2></label>
                 <br />
                 <input type="text" id="title" className="border-2 border-black border-opacity-10 w-full" required></input>
                 <br />
-                <label htmlFor="body"><h2 className="text-4xl">Body</h2></label>
+                <label htmlFor="body"><h2 className="text-4xl text-white">Body</h2></label>
                 <br />
                 <textarea rows="4" cols="175" type="text" id="body" className="border-2 border-black border-opacity-10" required></textarea>
                 <br />
-                <label htmlFor="private"><h2 className="text-4xl">Is this a private post?</h2></label>
+                <label htmlFor="private"><h2 className="text-4xl text-white">Is this a private post?</h2></label>
                 <select id="private" className="border-2 border-black border-opacity-10 p-2" >
                     <option value="false">False</option>
                     <option value="true">True</option>

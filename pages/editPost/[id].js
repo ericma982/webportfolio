@@ -92,6 +92,7 @@ export async function getServerSideProps(context) {
 
 }
 
+/*
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
     dbConnect();
@@ -109,3 +110,4 @@ export async function getStaticPaths() {
     // { fallback: false } means other routes should 404.
     return { paths, fallback: false }
 }
+*/

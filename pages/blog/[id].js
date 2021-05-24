@@ -9,6 +9,7 @@ export default function id({ post }) {
     return (
         <div className="container justify-center w-full lg:w-auto mx-auto rounded bg-gray-900 bg-opacity-30">
             <h1 className={utilStyles.headingIndex}>{post.title}</h1>
+            <div className="container justify-center w-full mx-auto text-white overflow-auto">{post.createdAt.split('T')[0]}</div>
             <div className="container justify-center w-full mx-auto whitespace-pre-wrap text-white overflow-auto">{post.body}</div>
 
         </div>

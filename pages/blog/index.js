@@ -6,9 +6,9 @@ export default function Blog({ postCards }) {
 
 
     return (
-        <div className="container justify-center w-full lg:w-auto mx-auto my-16">
+        <div className="container justify-center w-full lg:w-auto mx-auto my-16 h-5/6 h-max-screen overflow-y-auto">
             <h1 className={utilStyles.headingIndex}>Blog</h1>
-            <div className="grid grid-cols-3 grid-rows-auto flex-wrap justify-center w-full md:mx-16 lg:mx-16 lg:gap-y-12 lg:gap-x-48">
+            <div className="grid grid-cols-3 grid-rows-auto flex-wrap justify-center md:mx-16 lg:mx-16 lg:gap-y-12 lg:gap-x-48">
                 {postCards.map(post => {
                     return (
                         <button key={post._id} className="overflow-hidden group bg-gray-900 bg-opacity-30

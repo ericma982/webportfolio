@@ -7,10 +7,10 @@ import Post from '../../models/Post'
 export default function id({ post }) {
 
     return (
-        <div className="container justify-center w-full lg:w-auto mx-auto rounded bg-gray-900 bg-opacity-30">
+        <div className="container justify-center w-full lg:w-auto mx-auto rounded bg-gray-900 bg-opacity-30 h-5/6 h-max-screen overflow-y-scroll my-12">
             <h1 className={utilStyles.headingIndex}>{post.title}</h1>
-            <div className="container justify-center w-full mx-auto text-white overflow-auto">{post.createdAt.split('T')[0]}</div>
-            <div className="container justify-center w-full mx-auto whitespace-pre-wrap text-white overflow-auto">{post.body}</div>
+            <div className="justify-center w-full mx-auto text-white overflow-auto"><p>{post.createdAt.split('T')[0]}</p></div>
+            <div className="justify-center w-full mx-auto whitespace-pre-wrap text-white"><p>{post.body}</p></div>
 
         </div>
 
